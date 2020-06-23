@@ -1,0 +1,43 @@
+<h2>The XMLHttpRequest Object</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+ 
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+      //document.getElementById("demo").innerHTML = 'done';
+    }
+  };
+  
+  /*
+  var namevalue=encodeURIComponent(document.getElementById("name").value)
+  var agevalue=encodeURIComponent(document.getElementById("age").value)
+  mygetrequest.open("GET", "basicform.php?name=" +namevalue+" &age="+agevalue, true)
+  mygetrequest.send(null)
+  */
+  var btd = 22;
+  var btm = 2;
+  var bty = 1982;
+  var tday = 28;
+  var tmonth = 5;
+  var tyear = 2020;
+  
+  //var url = "https://twaich.pythonanywhere.com/makeReq?btd="+btd+"&btm="+btm+"&bty="+bty+"&tday="+tday+"&tmonth="+tmonth+"&tyear="+tyear;
+  //var url = "https://joke-api-strict-cors.appspot.com/jokes/random";
+  var url = "https://mapng.herokuapp.com/req?btd="+btd+"&btm="+btm+"&bty="+bty+"&tday="+tday+"&tmonth="+tmonth+"&tyear="+tyear;
+  //var tDay = 28;
+  //var see = [btd,btm];
+  //xhttp.open("POST", "https://wec.org.ng/tcs/makeReq?data="+see, true);
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(null);
+}
+</script>
+
+</body>
+</html>
